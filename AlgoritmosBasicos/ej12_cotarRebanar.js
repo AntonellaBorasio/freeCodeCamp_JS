@@ -10,12 +10,32 @@ Devuelve el arreglo resultante. Los arreglos de entrada deben permanecer iguales
 
 
 
+function frankenSplice(arr1, arr2, n) {
+  let arrNuevo = arr2.slice();
+  for (let i = 0; i < arr1.length; i++) {
+    arrNuevo.splice(n, 0, arr1[i]);
+    n++
+  }
+  return arrNuevo;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+
+
+Versión 2: con propagación
+
+function frankenSplice(arr1, arr2, n) {
+    let arrNuevo = arr2.slice();
+    arrNuevo.splice(n, 0, ...arr1);
+return arrNuevo;
+
+
+
+Versión 3: abreviando
+
+function frankenSplice(arr1, arr2, n) {
+return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
+
 
 */
-function frankenSplice(arr1, arr2, n) {
-    let arrFinal = [];
-    arrFinal.push(arr2.slice(0, n));
-    arrFinal.push(...arr1);
-    arrFinal.push(arr2.slice(arr1.lenght, -1))
-    return arrFinal;
-  }
