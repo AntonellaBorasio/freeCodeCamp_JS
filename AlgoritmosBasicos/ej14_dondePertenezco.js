@@ -6,7 +6,7 @@ Por ejemplo, getIndexToIns([1,2,3,4], 1.5) debe devolver 1 por que este valor es
 
 De esta forma, getIndexToIns([20,3,5], 19) debe devolver 2 porque una vez ordenado el arreglo, éste se verá así [3,5,20] y 19 es menor que 20 (índice 2) y mayor que 5 (índice 1).
 
-
+- Solución propia:
 
 function getIndexToIns(arr, num) {
     let arrOrdenado = arr.sort((a,b)=>{
@@ -20,13 +20,11 @@ function getIndexToIns(arr, num) {
   }
   return arr.length
 }
-  
-  
-  getIndexToIns([10, 20, 30, 40, 50], 30)
+
+getIndexToIns([10, 20, 30, 40, 50], 30)
 
 
-
-  Version 2: concatenar + ordenar + buscar índice
+Version 2: concatenar + ordenar + buscar índice
   
 function getIndexToIns(arr, num) {
   return arr
@@ -34,6 +32,16 @@ function getIndexToIns(arr, num) {
     .sort((a, b) => a - b)
     .indexOf(num);
 }
+
+
+- Solución propia 2 (derivada de la versión 2):
+
+function getIndexToIns(arr, num) {
+  arr.push(num);
+  let arrOrdenado = arr.sort((a, b) => a - b);
+  return arrOrdenado.indexOf(num);
+}
+
 
 
 Para más versiones, revisar: https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-where-do-i-belong/16094
